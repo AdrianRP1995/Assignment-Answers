@@ -103,7 +103,7 @@ end
 
 #We will search for the best reciprocal hits using the results of the BLAST.
 
-count = 1
+count = 0
 ff_search.each do |seq_search| # We iterate over each sequence in the search
 
   search_id = (seq_search.entry_id).to_s # We store the ID in search to later know if it is a reciprocal best hit
