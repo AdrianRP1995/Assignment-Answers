@@ -70,12 +70,16 @@ out_file = create_file('orthologues.txt')
 out_file.puts "ORTHOLOGUES FOUND in files #{search} and #{target}\n"
 
 
+#We create a folder which will contain the BLAST databases
+system("mkdir BLAST_db")
+
+
 #We change the name of the file variables so we can create the databases used in BLAST.
 db_search = search.to_s + '_db'
 db_target = target.to_s + '_db'
 
 
-#We create the databases for BLAST, in a previoulsy created folder called "BLAST_db"
+#We create the databases for BLAST, in a previoulsy created folder
 system("makeblastdb -in '#{search}' -dbtype #{search_type} -out ./BLAST_db/#{db_search}")
 system("makeblastdb -in '#{target}' -dbtype #{target_type} -out ./BLAST_db/#{db_target}")
 
